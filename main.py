@@ -16,6 +16,7 @@ app.config["JWT_SECRET_KEY"]="super-secret" #Cambiar por el que seconveniente
 jwt = JWTManager(app)
 
 # Registro los endpoints
+app.register_blueprint(Endpoints.endpointInscripciones)
 app.register_blueprint(Endpoints.endpointSeguridad)
 
 def __loadFileConfig():

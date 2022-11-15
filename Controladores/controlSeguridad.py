@@ -28,10 +28,6 @@ class ControladorSeguridad():
         else:
             return {"msg": "Bad username or password"}, 401
     
-    
-    
-    
-    
     def __loadFileConfig(self):
         with open('config.json') as f:
             data = json.load(f)

@@ -1,1 +1,2 @@
+from .endpointsInscripciones import endpointInscripciones
 from .endpointsSeguridad import endpointSeguridad

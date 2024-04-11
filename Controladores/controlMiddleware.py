@@ -12,12 +12,14 @@ class ControladorMiddleware():
     def before_request_func(self):
         print("\t\t>>BEFORE")
         endPoint=self.__limpiarURL(request.path)
+        print('endpoint: ' + endPoint)
         excludedRoutes=["/", "/login"]
         if excludedRoutes.__contains__(request.path):
             print("ruta excluida ",request.path)
             pass
         elif verify_jwt_in_request():
             usuario = get_jwt_identity()
+            print("\t>>Usuario: " + str(usuario))
             if usuario["rol"]is not None:
                 tienePersmiso=self.__validarPermiso(endPoint,request.method,usuario["rol"]["tipo"])
                 if not tienePersmiso:

@@ -12,6 +12,9 @@ from Controladores.controlMiddleware import ControladorMiddleware
 app=Flask(__name__)
 cors = CORS(app)
 
+from swagger_ui import api_doc
+api_doc(app, config_path='resources/openapi.yaml', url_prefix='/api/doc', title='API doc')
+
 app.config["JWT_SECRET_KEY"]="super-secret" #Cambiar por el que sea conveniente
 jwt = JWTManager(app)
 

@@ -13,8 +13,11 @@ class ControladorMiddleware():
         print("\t\t>>BEFORE")
         endPoint=self.__limpiarURL(request.path)
         print('endpoint: ' + endPoint)
+        
         excludedRoutes=["/", "/login"]
-        if excludedRoutes.__contains__(request.path):
+        # Excluye de la verificación de seguridad a las rutas especificadas
+        # y las rutas de la documentación de la API
+        if (excludedRoutes.__contains__(request.path) or request.path.startswith('/api/doc')):
             print("ruta excluida ",request.path)
             pass
         elif verify_jwt_in_request():

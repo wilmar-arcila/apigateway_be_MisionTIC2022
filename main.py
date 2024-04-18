@@ -12,7 +12,7 @@ from Controladores.controlMiddleware import ControladorMiddleware
 app=Flask(__name__)
 cors = CORS(app)
 
-app.config["JWT_SECRET_KEY"]="super-secret" #Cambiar por el que seconveniente
+app.config["JWT_SECRET_KEY"]="super-secret" #Cambiar por el que sea conveniente
 jwt = JWTManager(app)
 
 # Registro los endpoints

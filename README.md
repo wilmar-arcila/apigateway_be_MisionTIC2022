@@ -28,6 +28,7 @@ cd apigateway_be_MisionTIC2022
 python -m venv .venv
 ```
 __Nota__: Este paso solo es necesario la _primera vez que se quiera ejecutar el proyecto_. Una vez creado el entorno virtual este permanecerá hasta que explicitamente se elimine.
+
 3. Active el entorno virtual
 
 Linux

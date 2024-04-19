@@ -20,12 +20,13 @@ class ControladorMiddleware():
         if (excludedRoutes.__contains__(request.path) or request.path.startswith('/api/doc')):
             print("ruta excluida ",request.path)
             pass
+        # Para las otras rutas debe estar presente el token en la petición
         elif verify_jwt_in_request():
             usuario = get_jwt_identity()
             print("\t>>Usuario: " + str(usuario))
             if usuario["rol"]is not None:
-                tienePersmiso=self.__validarPermiso(endPoint,request.method,usuario["rol"]["tipo"])
-                if not tienePersmiso:
+                tienePermiso=self.__validarPermiso(endPoint,request.method,usuario["rol"]["tipo"])
+                if not tienePermiso:
                     return jsonify({"message": "Permission denied"}), 401
             else:
                 return jsonify({"message": "El usuario no tiene un Rol asociado -> Permiso denegado"}), 403
